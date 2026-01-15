@@ -1,0 +1,16 @@
+[global]
+transparency = 10
+font = "JetBrainsMonoNerdFont"
+#offset = (12,42)
+
+background = "#220033"
+foreground = "#ffffbb"
+
+frame_color = "#ffffbb"
+frame_width = 4
+corner_radius = 12
+
+[discord]
+appname="discord"
+format = "<b>%a\n%s:</b> %b"
+timeout = 20

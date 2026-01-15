@@ -1,0 +1,21 @@
+[window]
+padding = { x = 1, y = 1 }
+dynamic_padding = true
+opacity = 0.9
+blur = true
+
+[font]
+normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
+size = 10
+
+[colors]
+[colors.primary]
+background = "#110022"
+foreground = "#ddddbb"
+
+[cursor]
+style = { shape = "Block", blinking = "On"}
+blink_interval = 750
+
+[terminal]
+shell = "/bin/zsh"
