@@ -18,15 +18,15 @@ echo autoconf-archive
 echo criterion
 echo tree
 echo fastfetch
-echo tree-sitter-cli
-echo npm
 
 # visuals
 echo ttf-jetbrains-mono-nerd
 echo autotiling
 echo rofi
 echo picom
+echo polybar
 echo lsd
+echo feh
 
 # apps
 echo firefox
