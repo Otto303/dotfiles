@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font JetBrainsMonoNerdFont 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -55,7 +55,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -show drun -config $HOME/.config/rofi/dmenu/config.rasi"
+# bindsym $mod+d exec --no-startup-id dmenu_run
 
 # change focus
 bindsym $mod+j focus left
@@ -149,7 +149,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec $HOME/.config/rofi/power/start.sh
+#bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -186,38 +186,6 @@ bindsym $mod+r mode "resize"
 
 
 # =========== Config ==========
-
-# == Functions ==
-# Exec
-exec_always dunst -conf .config/dunst/dunstrc
-
-exec_always --no-startup-id pkill polybar; polybar -c $HOME/.config/polybar/config.ini
-
-exec_always --no-startup-id picom
-
-exec_always --no-startup-id autotiling
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/3.jpg
-
-# Bindings
-bindsym $mod+i exec $HOME/.config/i3lock-color/examples/config_lock.sh
-bindsym F11 exec brightnessctl set 10%-
-bindsym F12 exec brightnessctl set +10%
-
-bindsym $mod+Shift+s exec $HOME/.config/rofi/settings/start.sh
-bindsym $mod+Shift+w exec $HOME/.config/rofi/settings/wifi/start.sh
-
-bindsym $mod+Shift+f exec firefox
-
-# == Visuals ==
-# Borders
-client.focused #ffff88 #000000 #ffffff #ffff88 #ffff88
-client.unfocused #444444 #1e1e1e #cccccc #444444
-client.urgent #ff0000 #ff0000 #ffffff #ff0000 #ff0000
-
-new_window pixel 3
-new_float pixel 3
-
-# Gaps
-gaps inner 6
-gaps outer 6
-smart_gaps off
+include $HOME/.config/i3/startup.conf
+include $HOME/.config/i3/bindings.conf
+include $HOME/.config/i3/visuals.conf

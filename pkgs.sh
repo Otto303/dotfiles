@@ -4,12 +4,23 @@
 echo alacritty
 echo zsh
 echo nvim
+echo pulseaudio
+echo pavucontrol
+echo bluez
+echo bluez-utils
+echo blueman
 echo dunst
 echo libnotify
 echo brightnessctl
+echo maim
+echo xclip
+echo udisks2
+echo udiskie
 
 # tools
+echo man
 echo man-pages
+echo bat
 echo git
 echo clang
 echo gdb

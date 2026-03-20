@@ -1,3 +1,3 @@
 return {
-  "nvim-lua/plenary.nvim", -- lua functions set used by numerous plugins
+  "nvim-lua/plenary.nvim", -- set of functions used by numerous plugins
 }

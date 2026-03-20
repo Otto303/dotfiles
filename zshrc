@@ -1,21 +1,26 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt notify
-unsetopt beep
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/otto/.zshrc'
+# ========== Oh-my-zsh cinfig ==========
+export ZSH="$HOME/.oh-my-zsh"
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+ENABLE_CORRECTION="true"
+
+COMPLETION_WAITING_DOTS="true"
+
+plugins=(git zsh-autosuggestions)
+
+source $ZSH/oh-my-zsh.sh
 
 # ========== Config ==========
-# Visuals
+
+plugins=(git zsh-autosuggestions)
+
+# Loads
 autoload -Uz vcs_info
+autoload -Uz tetriscurses
+
+# Exports
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat --paging=always -p -lman'"
+
+# Visuals
 precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%F{red} %b %m%u%c%f'
 
@@ -38,6 +43,9 @@ alias fzf='f_fzf'
 
 alias la='lsd -A'
 alias nv='nvim'
+
+alias less='bat -p'
+alias cat='bat --paging=never --style=plain'
 
 # Binds
 bindkey '^[[1;5C' forward-word

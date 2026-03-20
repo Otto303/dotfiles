@@ -1,129 +1,104 @@
 return {
-    "hrsh7th/nvim-cmp",
-    event = { "InsertEnter", "CmdlineEnter" },
-    dependencies = {
-        "hrsh7th/cmp-buffer", -- source pour compléter le texte déjà présent dans le buffer
-        "hrsh7th/cmp-path", -- source pour compléter les chemins des fichiers
-        "hrsh7th/cmp-cmdline", -- source pour les completions de la cmdline de vim
-        {
-            "L3MON4D3/LuaSnip",
-            -- follow latest release.
-            version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-            -- install jsregexp (optional!).
-            build = "make install_jsregexp",
-        },
-        "saadparwaiz1/cmp_luasnip", -- ajoute LuaSnip à l'autocompletion
-        "rafamadriz/friendly-snippets", -- collection de snippets pratiques
-        "hrsh7th/cmp-emoji",        -- complétion d'émojis à la saisie de :
-        "onsails/lspkind.nvim",     -- vs-code pictogrammes
+  "hrsh7th/nvim-cmp",
+  event = { "InsertEnter", "CmdlineEnter" },
+  dependencies = {
+    "hrsh7th/cmp-buffer", -- source to complete text already present in buffer
+    "hrsh7th/cmp-path", -- source to complete file paths
+    "hrsh7th/cmp-cmdline", -- source for vim cmdLine completions
+    {
+      "L3MON4D3/LuaSnip",
+      -- follow latest release.
+      version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      -- install jsregexp (optional!).
+      build = "make install_jsregexp",
     },
-    config = function()
-        local cmp = require("cmp")
+    "saadparwaiz1/cmp_luasnip", -- add LuaSnip to autocompletion
+    "rafamadriz/friendly-snippets", -- convenient snippets collection
+    "hrsh7th/cmp-emoji", -- emojis completion when typing :
+    "onsails/lspkind.nvim", -- vs-code pictograms
+  },
+  config = function()
+    local cmp = require("cmp")
 
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local luasnip = require("luasnip")
 
-        local luasnip = require("luasnip")
+    local lspkind = require("lspkind")
 
-        local lspkind = require("lspkind")
+    -- snippets loqding (e.g. friendly-snippets)
+    require("luasnip.loaders.from_vscode").lazy_load()
 
-        -- chargement des snippets (e.g. friendly-snippets)
-        require("luasnip.loaders.from_vscode").lazy_load()
+    cmp.setup({
+      completion = {
+        completeopt = "menu,menuone,preview,noselect",
+      },
+      snippet = { -- utilising luasnip as snippets motor
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
+      mapping = {
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+        ["<Tab>"] = cmp.mapping.select_next_item(),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-1),
+        ["<C-f>"] = cmp.mapping.scroll_docs(1),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<Esc>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept current selection.
+      },
 
-        cmp.setup({
-            completion = {
-                completeopt = "menu,menuone,preview,noselect",
-            },
-            snippet = { -- on utilise luasnip comme moteur de snippets
-                expand = function(args)
-                    luasnip.lsp_expand(args.body)
-                end,
-            },
-            mapping = {
-                ["<C-b>"] = cmp.mapping.scroll_docs(-1),
-                ["<C-f>"] = cmp.mapping.scroll_docs(1),
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<C-e>"] = cmp.mapping.abort(),
-                ["<CR>"] = cmp.mapping.confirm(
-                    { select = true }
-                ),
-                ['<Tab>'] = cmp.mapping(
-                    function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item() -- Navigue vers le bas
-                        else
-                            fallback()
-                        end
-                    end,
-                    { 'i', 's' }
-                ),
-                ['<S-Tab>'] = cmp.mapping(
-                    function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item() -- Navigue vers le haut
-                        else
-                            fallback()
-                        end
-                    end,
-                    { 'i', 's' }
-                ),
-            },
+      -- sources for autocompletion
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" }, -- lsp
+        { name = "nvim_lua" },
+        { name = "luasnip" }, -- snippets
+        { name = "buffer" }, -- current buffer text
+        { name = "path" }, -- file system path
+        { name = "emoji" }, -- emojis
+      }),
 
-            -- sources pour l'autocompletion
-            sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "vsnip" },
-                { name = "nvim_lua" },
-                { name = "luasnip" }, -- snippets
-                { name = "buffer" }, -- texte du buffer courant
-                { name = "path" }, -- chemins dy système de fichier
-                { name = "emoji" }, -- emojis
-                { name = "clangd" },
-            }),
+      formatting = {
+        -- Default comportement
+        expandable_indicator = true,
+        -- Fields displayed by default
+        fields = { "abbr", "kind", "menu" },
+        format = lspkind.cmp_format({
+          mode = "symbol_text",
+          -- We suffix each entry by its type
+          menu = {
+            nvim_lsp = "[LSP]",
+            buffer = "[Buffer]",
+            luasnip = "[LuaSnip]",
+            nvim_lua = "[Lua]",
+            path = "[Path]",
+            emoji = "[Emoji]",
+          },
+        }),
+      },
+    })
 
-            vim.lsp.config("clangd", { capabilities = capabilities, }),
-            vim.lsp.enable("clangd"),
+    -- `/` completion
+    cmp.setup.cmdline("/", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
+      },
+    })
 
-            formatting = {
-                -- Comportement par défaut
-                expandable_indicator = true,
-                -- Champs affichés par défaut
-                fields = { "abbr", "kind", "menu" },
-                format = lspkind.cmp_format({
-                    mode = "symbol_text",
-                    -- On suffixe chaque entrée par son type
-                    menu = {
-                        nvim_lsp = "[LSP]",
-                        buffer = "[Buffer]",
-                        luasnip = "[LuaSnip]",
-                        nvim_lua = "[Lua]",
-                        path = "[Path]",
-                        emoji = "[Emoji]",
-                    },
-                }),
-            },
-        })
+    -- `:` completion
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        {
+          name = "cmdline",
+          option = {
+            ignore_cmds = { "Man", "!" },
+          },
+        },
+      }),
+    })
 
-        -- `/` complétion
-        cmp.setup.cmdline("/", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = "buffer" },
-            },
-        })
-
-        -- `:` complétion
-        cmp.setup.cmdline(":", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-            }, {
-                {
-                    name = "cmdline",
-                    option = {
-                        ignore_cmds = { "Man", "!" },
-                    },
-                },
-            }),
-        })
-    end,
+  end,
 }
+

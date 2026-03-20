@@ -1,39 +1,29 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
-     local treesitter = require("nvim-treesitter")
+    local treesitter = require("nvim-treesitter.config")
 
-    -- configuration de treesitter
+    -- configurate treesitter
     treesitter.setup({
-      -- activation de la coloration syntaxique
+      -- activate syntaxic coloration
       highlight = {
         enable = true,
       },
-      -- activation de l'indentation améliorée
+      -- activate impoved indentation
       indent = { enable = true },
 
-      -- langages installés et configurés
+      -- installed annd configured languages
       ensure_installed = {
-        "c",
         "bash",
-        "dockerfile",
-        "gitignore",
-        "html",
-        "javascript",
-        "json",
+        "c",
+        "cpp",
         "lua",
-        "markdown",
-        "markdown_inline",
         "python",
-        "rst",
-        "rust",
-        "typescript",
-        "vim",
-        "yaml",
       },
-      -- lorse de l'appui sur <Ctrl-space> sélectionne le bloc
-      -- courant spécifique au langage de programmation
+      -- when typing <Ctrl-space> select current bloc
+      -- specific to language
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -46,3 +36,4 @@ return {
     })
   end,
 }
+

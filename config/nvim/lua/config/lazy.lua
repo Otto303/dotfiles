@@ -15,13 +15,19 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Configu lazy.nvim and import 'plugins' repository
-require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } }, {
-  -- disable startup notification
+-- Configurate lazy.nvim and import `plugins` repository
+require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp"} }, {
+  -- automatically check plugin updates without notifying
+  -- lualine will deal with displaying an icon
   checker = {
     enabled = true,
     notify = false,
   },
+
+  -- theme used for plugin installation
+  install = { colorscheme = { "tokyonight" } },
+  -- disable startup notification
+
   change_detection = {
     notify = false,
   },

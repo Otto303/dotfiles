@@ -3,9 +3,9 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local lualine = require("lualine")
-    local lazy_status = require("lazy.status") -- display number of plugins updating
+    local lazy_status = require("lazy.status") -- display number of lazy plugins update
 
-    -- config lualine
+    -- configurate lualine
     lualine.setup({
       options = {
         icons_enabled = true,
@@ -27,7 +27,30 @@ return {
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_b = {
+          "branch",
+          "diff",
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" },
+            sections = { "error", "warn", "info", "hint" },
+            diagnostics_color = {
+              error = { fg = "#db4b4b" },
+              warn  = { fg = "#e0af68" },
+              info  = { fg = "#0db9d7" },
+              hint  = { fg = "#10B981" },
+            },
+            symbols = {
+              error = " ",
+              warn  = " ",
+              info  = " ",
+              hint  = "󰌵 ",
+            },
+            colored = true,
+            update_in_insert = false,
+            always_visible = false,
+          },
+        },
         lualine_c = { { "filename", path = 1 } },
         lualine_x = {
           {
@@ -57,3 +80,4 @@ return {
     })
   end,
 }
+

@@ -1,16 +1,15 @@
 [global]
-transparency = 10
 font = "JetBrainsMonoNerdFont"
 #offset = (12,42)
 
-background = "#220033"
-foreground = "#ffffbb"
+background = "#2f2f2f"
+foreground = "#efefef"
+frame_color = "#000000"
 
-frame_color = "#ffffbb"
-frame_width = 4
+frame_width = 1
 corner_radius = 12
+padding = 12
 
 [discord]
 appname="discord"
-format = "<b>%a\n%s:</b> %b"
-timeout = 20
+default_icon = "/opt/discord/discord.png"

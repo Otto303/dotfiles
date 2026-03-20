@@ -12,20 +12,7 @@ opt.autoindent = true
 -- search
 opt.ignorecase = true
 opt.smartcase = true
-opt.hlsearch = true 
-
-opt.cursorline = true 
-
--- apparence
-vim.cmd 'colorscheme vim'
-
-vim.api.nvim_set_hl(0, "Pmenu", { bg = "#2c2c2c", fg = "#ffffff" });
-vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#005f87", fg = "#ffffff" });
-
-vim.opt.colorcolumn = "80"
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#333333", fg = "NONE" });
-
-vim.api.nvim_set_hl(0, "Comment", { bg = "NONE", fg = "#22CC44" });
+opt.hlsearch = true
 
 -- backspace
 opt.backspace = "indent,eol,start"
@@ -37,4 +24,7 @@ opt.clipboard = "unnamedplus"
 opt.splitright = true
 opt.splitbelow = true
 
+-- other
+opt.cursorline = true
+vim.opt.colorcolumn = "80"
 opt.swapfile = false
