@@ -33,9 +33,10 @@ echo -e '\e[0;1mGenerating desktop...\e[0;0m'
 mkdir -p $HOME/afs
 mkdir -p $HOME/Documents
 mkdir -p $HOME/Downloads
-mkdir -p $HOME/Pictures
 mkdir -p $HOME/Desktop
-cp -r $PWD/wallpapers ~/Pictures/wallpapers
+mkdir -p $HOME/Pictures
+mkdir -p $HOME/Pictures/screenshots
+cp -r $PWD/Wallpapers $HOME/Pictures/Wallpapers
 
 echo -e "\e[0;1m[\e[32;1mOK\e[0;1m] Desktop\e[0;0m"
 
