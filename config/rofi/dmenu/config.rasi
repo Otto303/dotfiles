@@ -104,7 +104,7 @@ element {
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
-    orientation:                vertical;
+    orientation:                 vertical;
 }
 element normal.normal {
     background-color:            inherit;
