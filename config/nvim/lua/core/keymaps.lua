@@ -31,11 +31,20 @@ keymap("i", "[", "[]<Left>", {desc="Close brackets"});
 keymap("i", "\"", "\"\"<Left>", {desc="Close double-quotes"});
 keymap("i", "\'", "\'\'<Left>", {desc="Close simmple-quotes"});
 
--- Managing buffers
+-- Navigating buffers
 keymap("n", "<A-Left>", ":bprevious<CR>", { desc = "Move cursor to left buffer"})
 keymap("n", "<A-Right>", ":bnext<CR>", { desc = "Move cursor to right buffer" })
 
 keymap("n", "<C-w>", ":bdelete<CR>", { desc = "Close current buffer" })
+
+-- Navigating windiws
+keymap("n", "<A-Up>", ":wincmd h<CR>", { desc = "Move cursor to left window" })
+keymap("n", "<A-Down>", ":wincmd l<CR>", { desc = "Move cursor to right window" })
+
+-- Terminal
+keymap("n", "<C-S-Enter>", ":vsplit term://zsh<CR>:startinsert<CR>", { desc = "Open a new terminal in a new window" })
+keymap("n", "<C-Enter>", ":wincmd l<CR>:startinsert<CR>", { desc = "Switch to opened terminal" })
+keymap("t", "<Esc>", "<C-\\><C-n>:wincmd h<CR>", { desc = "Exit terminal" })
 
 -- === Plugins ===
 keymap('n', '<A-i>', '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = "Compeltion menu" })

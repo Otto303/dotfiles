@@ -11,8 +11,9 @@ done
 # Config
 echo -e '\e[0;1mInstalling config files...\e[0;0m'
 
-cp -rf $PWD/config/* ~/.config/
-cp -rf $PWD/zshrc ~/.zshrc
+for file in $(ls $PWD/hidden) do
+    cp -rf $PWD/hidden/$file ~/.$file
+done
 
 echo -e "\e[0;1m[\e[32;1mOK\e[0;1m] Config files\e[0;0m"
 

@@ -10,21 +10,22 @@ return {
       options = {
         icons_enabled = true,
         theme = "auto",
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
         },
         ignore_focus = {},
         always_divide_middle = true,
-        globalstatus = false,
+        globalstatus = true,
         refresh = {
           statusline = 1000,
           tabline = 1000,
           winbar = 1000,
         },
       },
+
       sections = {
         lualine_a = { "mode" },
         lualine_b = {
@@ -38,13 +39,13 @@ return {
               error = { fg = "#db4b4b" },
               warn  = { fg = "#e0af68" },
               info  = { fg = "#0db9d7" },
-              hint  = { fg = "#10B981" },
+              hint  = { fg = "#10b981" },
             },
             symbols = {
-              error = " ",
-              warn  = " ",
-              info  = " ",
-              hint  = "󰌵 ",
+              error = " ",
+              warn  = " ",
+              info  = " ",
+              hint  = "󰌶 ",
             },
             colored = true,
             update_in_insert = false,
@@ -59,12 +60,12 @@ return {
             color = { fg = "#ff9e64" },
           },
           { "encoding" },
-          { "fileformat" },
           { "filetype" },
         },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
+
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
