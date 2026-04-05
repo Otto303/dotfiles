@@ -3,6 +3,7 @@
 # utils
 echo alacritty
 echo zsh
+echo tmux
 echo nvim
 echo pulseaudio
 echo pavucontrol
