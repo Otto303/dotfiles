@@ -31,6 +31,7 @@ return {
       ensure_installed = {
         "clangd",
         "pylsp",
+        "lua_ls",
       },
     })
   end,

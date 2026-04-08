@@ -1,7 +1,7 @@
 [window]
 padding = { x = 4, y = 4 }
 dynamic_padding = true
-opacity = 0.75
+opacity = 0.8
 
 [font]
 normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
@@ -9,7 +9,7 @@ size = 10
 
 [colors]
 [colors.primary]
-background = "#140018"
+background = "#202020"
 foreground = "#ddbbaa"
 
 [cursor]
@@ -17,8 +17,8 @@ style = { shape = "Block", blinking = "On"}
 blink_interval = 750
 blink_timeout = 10
 
-[terminal]
-shell = "/bin/zsh"
-
 [mouse]
 hide_when_typing = true
+
+[terminal]
+shell = "/bin/zsh"

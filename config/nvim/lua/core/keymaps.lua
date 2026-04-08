@@ -31,6 +31,9 @@ keymap("i", "[", "[]<Left>", {desc="Close brackets"});
 keymap("i", "\"", "\"\"<Left>", {desc="Close double-quotes"});
 keymap("i", "\'", "\'\'<Left>", {desc="Close simmple-quotes"});
 
+-- Remove highlight on new search
+keymap("n", "/", ":noh<CR>/", {desc="Search for a word"});
+
 -- Navigating buffers
 keymap("n", "<A-Left>", ":bprevious<CR>", { desc = "Move cursor to left buffer"})
 keymap("n", "<A-Right>", ":bnext<CR>", { desc = "Move cursor to right buffer" })

@@ -12,7 +12,7 @@ return {
     { "folke/lazydev.nvim", opts = {} },
   },
   keys = {
-    { "A-i", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
+    { "A-i", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n" } },
     { "gd", vim.lsp.buf.definition, desc = "Go to definition", mode = "n" },
     { "gD", vim.lsp.buf.declaration, desc = "Go to declaration", mode = "n" },
     { "gs", vim.lsp.buf.signature_help, desc = "Show LSP signature help", mode = "n" },
@@ -45,7 +45,7 @@ return {
     -- Customize error signs
     vim.diagnostic.config({
       underline = true,
-      virtual_text = { prefix = "" },
+      virtual_text = { prefix = "", },
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = "",

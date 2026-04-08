@@ -10,6 +10,19 @@ return {
       view = {
         side = "right",
       },
+      diagnostics = {
+        enable = true,
+        show_on_dirs = true,
+        icons = {
+          hint = "󰌵",
+          info = "",
+          warning = "",
+          error = "",
+        },
+      },
+      renderer = {
+        highlight_diagnostics = true,
+      },
     })
 
     vim.keymap.set(
