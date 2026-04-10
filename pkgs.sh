@@ -17,6 +17,8 @@ echo maim
 echo xclip
 echo udisks2
 echo udiskie
+echo zip
+echo unzip
 
 # tools
 echo man
