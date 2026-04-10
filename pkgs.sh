@@ -30,6 +30,7 @@ echo autoconf-archive
 echo criterion
 echo tree
 echo fastfetch
+echo gdu
 
 # visuals
 echo ttf-jetbrains-mono-nerd
