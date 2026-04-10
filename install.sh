@@ -11,7 +11,7 @@ done
 # Config
 echo -e '\e[0;1mInstalling config files...\e[0;0m'
 
-for file in $(ls $PWD/hidden) do
+for file in $(ls $PWD/hidden); do
     cp -rf $PWD/hidden/$file ~/.$file
 done
 
