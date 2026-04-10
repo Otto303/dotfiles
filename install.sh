@@ -15,6 +15,10 @@ for file in $(ls $PWD/hidden); do
     cp -rf $PWD/hidden/$file ~/.$file
 done
 
+for file in $(ls $PWD/config); do
+    cp -rf $PWD/config/$file ~/.config/$file
+done
+
 echo -e "\e[0;1m[\e[32;1mOK\e[0;1m] Config files\e[0;0m"
 
 # Oh my zsh
@@ -40,6 +44,16 @@ mkdir -p $HOME/Pictures/screenshots
 cp -r $PWD/Wallpapers $HOME/Pictures/Wallpapers
 
 echo -e "\e[0;1m[\e[32;1mOK\e[0;1m] Desktop\e[0;0m"
+
+echo -e '\e[0;1mChanging greeter...\e[0;0m'
+
+sudo pacman -S greetd-tuigreet
+sudo systemctl disable lightdm.service
+sudo systemctl enable greetd.service
+sudo pacman -Rns lightdm-gtk-greeter lightdm
+sudo cp $PWD/greetd/config.toml /etc/greetd/config.toml
+
+echo -e '\e[0;1mGreeter changed\e[0;0m'
 
 echo -e "\e[0;1mDone.\e[0;0m"
 
