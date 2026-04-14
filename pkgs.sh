@@ -42,8 +42,8 @@ echo picom
 echo polybar
 echo lsd
 echo feh
+echo breeze-cursors
 
 # apps
 echo firefox
 echo discord
-echo lxappeatance
