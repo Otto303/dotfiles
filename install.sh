@@ -47,6 +47,7 @@ echo -e "\e[0;1m[\e[32;1mOK\e[0;1m] Desktop\e[0;0m"
 
 echo -e '\e[0;1mChanging greeter...\e[0;0m'
 
+# Greeter
 sudo pacman -S greetd-tuigreet
 sudo systemctl disable lightdm.service
 sudo systemctl enable greetd.service
@@ -55,6 +56,5 @@ sudo cp $PWD/greetd/config.toml /etc/greetd/config.toml
 
 echo -e '\e[0;1mGreeter changed\e[0;0m'
 
-echo -e "\e[0;1mDone.\e[0;0m"
-
 # Done.
+echo -e "\e[0;1mDone.\e[0;0m"
