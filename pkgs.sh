@@ -47,4 +47,3 @@ echo feh
 echo firefox
 echo discord
 echo lxappeatance
-echo thunar
