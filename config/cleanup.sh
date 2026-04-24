@@ -3,7 +3,7 @@
 echo "Cleaning up archlinux..."
 
 # Remove pacman cache
-sudo pacman -Scc
+sudo pacman -Scc || true
 
 # Remove unused packages
 sudo pacman -Rns $(pacman -Qtdq) || true
