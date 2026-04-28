@@ -23,24 +23,26 @@
         },
         {
             "type": "cpu",
-            "key": "  "
+            "key": "  ",
+            "format": "{name}"
         },
         {
             "type": "gpu",
             "detectionMethod": "pci",
-            "key": "  "
+            "key": "  ",
+            "format": "{name}"
         },
         {
             "type": "display",
-            "key": "  󱄄"
+            "key": "  󰹑"
         },
         {
             "type": "memory",
-            "key": "  "
+            "key": "  "
         },
         {
             "type": "disk",
-            "key": "  ",
+            "key": "  ",
             "folders": "/"
         },
         {
@@ -53,12 +55,12 @@
         },
         {
             "type": "os",
-            "key": "  ",
+            "key": "  󰣇",
             "keyColor": "blue"
         },
         {
             "type": "kernel",
-            "key": "  ",
+            "key": "  ",
             "keyColor": "blue",
             "format": "{1} {2}"
         },
