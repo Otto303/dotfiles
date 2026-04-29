@@ -1,11 +1,11 @@
 @import "~/.config/rofi/colors.rasi"
 
 configuration {
-    modi:                        "layout";
+    modi:                        "drun";
     icon-theme:                  "Papirus";
     show-icons:                  true;
-    display-layout:              " ";
-    layout-display-format:       "{name}";
+    display-drun:                " ";
+    drun-display-format:         "{name}";
 }
 
 /*****----- Main Window -----*****/
