@@ -72,7 +72,8 @@ listview {
     columns:                     1;
     lines:                       6;
     cycle:                       false;
-    dynamic:                     false;
+    dynamic:                     true;
+    fixed-height:                false;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
