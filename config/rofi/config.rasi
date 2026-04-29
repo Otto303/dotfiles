@@ -4,7 +4,7 @@ configuration {
     modi:                        "layout";
     icon-theme:                  "Papirus";
     show-icons:                  true;
-    display-layout:              "  ";
+    display-layout:              " ";
     layout-display-format:       "{name}";
 }
 
@@ -63,7 +63,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Wifi SSID";
+    placeholder:                 "Select option";
     placeholder-color:           inherit;
 }
 /*****----- Listview -----*****/

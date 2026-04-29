@@ -3,7 +3,6 @@
 # Based on aelsadi/rofi-bluetooth-script
 
 refresh=true
-CONFIG=$HOME/.config/rofi/bluetooth/config.rasi
 
 while ($refresh == true) 
 do
@@ -40,7 +39,7 @@ do
     refresh_message="󰂯 Enable Bluetooth"
   fi 
 
-  device_selected=$(echo -e "$refresh_message" | sed 's/^..:..:..:..:..:.. //g' | rofi -replace -dmenu -i -config $CONFIG -p "󰂯 ") 
+  device_selected=$(echo -e "$refresh_message" | sed 's/^..:..:..:..:..:.. //g' | rofi -replace -dmenu -i -p "󰂯 ") 
 
   if [[ "$device_selected" =~ " Refresh" ]]; then
     refresh=true
@@ -80,7 +79,7 @@ elif [[ -n $device_selected ]]; then
     trusted="Enable auto-connect"
   fi
 
-  device_action=$(echo -e "$paired\n$trusted" | rofi -dmenu -i -config $CONFIG -p $device_name)
+  device_action=$(echo -e "$paired\n$trusted" | rofi -dmenu -i -p "$device_name: ")
   if [[ "$device_action" =~ "Pair" ]]; then
     bluetoothctl pairable on
     if bluetoothctl pair "$device_mac"; then
@@ -107,10 +106,5 @@ elif [[ -n $device_selected ]]; then
     bluetoothctl untrust "$device_mac" && notify-send "Bluetooth Connection" "Auto-connection disabled"
   elif [[ "$device_action" =~ "Forget" ]]; then
     bluetoothctl remove "$device_mac" && notify-send "Bluetooth Connection" "${device_selected:3} forgotten"
-  else
-    notify-send "Bluetooth Connection" "No action seleted"
   fi
-
-else
-  notify-send "Bluetooth Connection" "No option selected"
 fi
