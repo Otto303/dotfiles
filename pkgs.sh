@@ -9,6 +9,7 @@ echo pulseaudio
 echo pavucontrol
 echo bluez
 echo bluez-utils
+echo pipewire-alsa
 echo blueman
 echo dunst
 echo libnotify

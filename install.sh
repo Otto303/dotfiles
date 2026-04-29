@@ -58,6 +58,8 @@ echo -e '\e[0;1mGreeter changed\e[0;0m'
 
 # Done.
 sudo systemctl enable --now bluetooth.service
+systemctl --user restart pipewire-pulse
+
 i3-msg restart > /dev/null
 feh --bg-fill $HOME/Pictures/Wallpapers/_nyarch.jpg
 echo -e "\e[0;1mDone.\e[0;0m"
