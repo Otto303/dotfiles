@@ -1,11 +1,11 @@
 @import "~/.config/rofi/colors.rasi"
 
 configuration {
-    modi:                        "layout";
+    modi:                        "drun";
     icon-theme:                  "Papirus";
     show-icons:                  true;
-    display-layout:              "  ";
-    layout-display-format:       "{name}";
+    display-drun:                " ";
+    drun-display-format:         "{name}";
 }
 
 /*****----- Main Window -----*****/
@@ -63,16 +63,17 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Select layout...";
+    placeholder:                 "Select option";
     placeholder-color:           inherit;
 }
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       3;
+    lines:                       6;
     cycle:                       false;
-    dynamic:                     false;
+    dynamic:                     true;
+    fixed-height:                false;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;

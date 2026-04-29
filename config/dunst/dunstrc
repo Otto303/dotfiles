@@ -4,9 +4,8 @@ font = "JetBrainsMonoNerdFont"
 
 background = "#2f2f2f"
 foreground = "#efefef"
-frame_color = "#000000"
 
-frame_width = 1
+frame_width = 0
 corner_radius = 12
 padding = 12
 

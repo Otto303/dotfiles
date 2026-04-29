@@ -9,6 +9,7 @@ echo pulseaudio
 echo pavucontrol
 echo bluez
 echo bluez-utils
+echo pipewire-alsa
 echo blueman
 echo dunst
 echo libnotify
@@ -42,9 +43,8 @@ echo picom
 echo polybar
 echo lsd
 echo feh
+echo breeze-cursors
 
 # apps
 echo firefox
 echo discord
-echo lxappeatance
-echo thunar

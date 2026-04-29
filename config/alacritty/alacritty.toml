@@ -1,7 +1,7 @@
 [window]
 padding = { x = 4, y = 4 }
 dynamic_padding = true
-opacity = 0.8
+opacity = 0.75
 
 [font]
 normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
@@ -9,16 +9,27 @@ size = 10
 
 [colors]
 [colors.primary]
-background = "#202020"
+background = "#000000"
 foreground = "#ddbbaa"
 
 [cursor]
 style = { shape = "Block", blinking = "On"}
 blink_interval = 750
-blink_timeout = 10
+blink_timeout = 20
 
 [mouse]
 hide_when_typing = true
+
+[keyboard]
+[[keyboard.bindings]]
+action = "ScrollHalfPageUp"
+key = "PageUp"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollHalfPageDown"
+key = "PageDown"
+mods = "Control"
 
 [terminal]
 shell = "/bin/zsh"
