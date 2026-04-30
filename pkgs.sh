@@ -37,6 +37,7 @@ echo gdu
 
 # visuals
 echo ttf-jetbrains-mono-nerd
+echo starship
 echo autotiling
 echo rofi
 echo picom
