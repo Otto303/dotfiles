@@ -60,6 +60,8 @@ echo -e '\e[0;1mGreeter changed\e[0;0m'
 sudo systemctl enable --now bluetooth.service
 systemctl --user restart pipewire-pulse
 
+cp $PWD/modprobe.d/blacklist.conf /etc/modprobe.d/blacklist.conf
+
 i3-msg restart > /dev/null
 feh --bg-fill $HOME/Pictures/Wallpapers/_nyarch.jpg
 echo -e "\e[0;1mDone.\e[0;0m"

@@ -10,12 +10,13 @@ $character\
 
 add_newline = false
 
+# === Base ===
 [status]
 disabled = false
 format = """
 [╭─$symbol]($style) """
 success_symbol = '[]()'
-symbol = '[ \[ $status\]]($style)'
+symbol = ' \[ $status\]'
 success_style="bold blue"
 
 [character]
@@ -29,6 +30,9 @@ format = '[$path](fg:white)'
 truncation_length = 3
 truncation_symbol = "…/"
 
+# === Symbols ===
+
+# === Git ===
 [git_branch]
 disabled = false
 symbol = ""
@@ -44,12 +48,12 @@ format = '[ \($state( $progress_current/$progress_total)\)](fg:green)'
 
 [git_status]
 disabled = false
-format = '[ | $conflicted$staged$modified$renamed$deleted$untracked$stashed$ahead_behind](fg:bold green)'
+format = '[ $conflicted$staged$modified$renamed$deleted$untracked$stashed$ahead_behind](fg:bold green)'
 conflicted = "[ ${count}](fg:bold red)"
 staged = "[+${count} ](fg:green)"
 modified = "[±${count} ](fg:green)"
-deleted = "[-${count} ](fg:red)"
+deleted = "[-${count} ](fg:green)"
 untracked = "[?${count} ](fg:green)"
-stashed = "[ ${count} ](fg:yellow)"
-ahead = "[ ${count} ](fg:white)"
-behind = "[ ${count} ](fg:white)"
+stashed = "[ ${count} ](fg:green)"
+ahead = "[ ${count} ](fg:green)"
+behind = "[ ${count} ](fg:green)"
