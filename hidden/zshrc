@@ -22,12 +22,7 @@ autoload -Uz tetriscurses
 export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat --paging=always -p -lman'"
 
 # Visuals
-precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats '%F{red} %b %m%u%c%f'
-
-setopt PROMPT_SUBST
-PROMPT='%F{blue}╭─𜲂%f %40<...<%~%<< ${vcs_info_msg_0_}
-%F{blue}╰─%f$ '
+eval "$(starship init zsh)"
 
 # Aliases
 alias ls='lsd'

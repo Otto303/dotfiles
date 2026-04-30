@@ -1,0 +1,53 @@
+format = """
+$status\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$character\
+"""
+
+add_newline = false
+
+[status]
+disabled = false
+format = """
+[╭─$symbol]($style) """
+success_symbol = '[]()'
+symbol = '[ \[ $status\]]($style)'
+success_style="bold blue"
+
+[character]
+format = """
+[\n$symbol\\$](fg:white) """
+success_symbol = '[╰─](fg:bold blue)'
+error_symbol = '[╰─](fg:bold red)'
+
+[directory]
+format = '[$path](fg:white)'
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+disabled = false
+symbol = ""
+format = '[ $symbol $branch](fg:green)'
+
+[git_commit]
+disabled = false
+format = '[ \($hash$tag\)](fg:green)'
+
+[git_state]
+disabled = false
+format = '[ \($state( $progress_current/$progress_total)\)](fg:green)'
+
+[git_status]
+disabled = false
+format = '[ | $conflicted$staged$modified$renamed$deleted$untracked$stashed$ahead_behind](fg: green)'
+conflicted = "[ ${count}](fg:bold red)"
+staged = "[+${count} ](fg:green)"
+modified = "[±${count} ](fg:green)"
+deleted = "[-${count} ](fg:red)"
+untracked = "[?${count} ](fg:green)"
+stashed = "[ ${count} ](fg:yellow)"
