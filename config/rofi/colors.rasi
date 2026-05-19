@@ -2,5 +2,5 @@
     font:       "JetBrainsMono Nerd Font 10";
     selected:   #ffffff44;
     background: #00000011;
-    foreground: #ffffff;
+    foreground: white;
 }

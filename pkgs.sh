@@ -3,7 +3,6 @@
 # utils
 echo alacritty
 echo zsh
-echo tmux
 echo nvim
 echo pulseaudio
 echo pavucontrol
@@ -39,11 +38,14 @@ echo gdu
 echo ttf-jetbrains-mono-nerd
 echo starship
 echo autotiling
+echo python-i3ipc
 echo rofi
 echo picom
 echo polybar
 echo lsd
 echo feh
+echo xwinwrap
+echo mpv
 echo breeze-cursors
 
 # apps

@@ -2,7 +2,7 @@
 font = "JetBrainsMonoNerdFont"
 #offset = (12,42)
 
-background = "#2f2f2f"
+background = "#222222"
 foreground = "#efefef"
 
 frame_width = 0
