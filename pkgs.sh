@@ -19,6 +19,7 @@ echo udisks2
 echo udiskie
 echo zip
 echo unzip
+echo pacman-contrib
 
 # tools
 echo man
@@ -33,6 +34,7 @@ echo criterion
 echo tree
 echo fastfetch
 echo gdu
+echo btop
 
 # visuals
 echo ttf-jetbrains-mono-nerd
