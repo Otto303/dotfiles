@@ -1,7 +1,7 @@
 [window]
 padding = { x = 4, y = 4 }
 dynamic_padding = true
-opacity = 0.7
+opacity = 0.9
 
 [font]
 normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
@@ -9,8 +9,12 @@ size = 10
 
 [colors]
 [colors.primary]
-background = "#110022"
-foreground = "#ffcc88"
+background = '#111318'
+foreground = '#e2e2e9'
+
+[colors.cursor]
+text = '#e2e2e9'
+cursor = '#c4c6d0' 
 
 [cursor]
 style = { shape = "Block", blinking = "On"}

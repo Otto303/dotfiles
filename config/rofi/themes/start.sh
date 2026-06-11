@@ -18,6 +18,10 @@ replace i3/visuals.conf && i3-msg reload
 # alacritty
 replace alacritty/alacritty.toml
 
+# rofi
+replace rofi/config.rasi
+replace rofi/dmenu.rasi
+
 # polybar
 replace rofi/colors.rasi
 replace polybar/settings.ini
