@@ -15,10 +15,10 @@ GIT_COLOR='#66bb00'
 COLOR=$BASE_COLOR
 if [ -n "$NIX_BUILD_TOP" ] || [ -n "$IN_NIX_SHELL" ]; then
     COLOR=$NIX_COLOR
-    MSG="%F{$NIX_COLOR} %f"
+    MSG="%F{$NIX_COLOR} %f "
 elif [ -n "$VIRTUAL_ENV" ]; then
     COLOR=$PYTHON_COLOR
-    MSG="%F{$PYTHON_COLOR} %f"
+    MSG="%F{$PYTHON_COLOR} %f "
 elif (git status); then
     COLOR=$GIT_COLOR
 fi
@@ -30,24 +30,29 @@ fi
 
 # Zsh VCS
 precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats '%F{$GIT_COLOR} %b %m%u%c%f'
+zstyle ':vcs_info:git:*' formats "%F{$GIT_COLOR} %b %m%u%c%f"
 
 setopt PROMPT_SUBST
 
 # Set up PROMPT
 PROMPT_TOP="%F{$COLOR}╭─%f"
-PROMPT_BOTTOM="%F{$COLOR}╰─%f$"
+PROMPT_BOTTOM="%F{$COLOR}╰─%f"
 
-PROMPT="$PROMPT_TOP $CURRENT_DIR $MSG ${vcs_info_msg_0_}
+PROMPT="$PROMPT_TOP $CURRENT_DIR $MSG${vcs_info_msg_0_}
 $PROMPT_BOTTOM "
 
 # Unset used variables
 unset LAST_RESULT
 unset MSG
 unset CURRENT_DIR
+
 unset COLOR
 unset BASE_COLOR
 unset ERROR_COLOR
+
 unset NIX_COLOR
+unset GIT_COLOR
+unset PYTHON_COLOR
+
 unset PROMPT_TOP
 unset PROMPT_BOTTOM
