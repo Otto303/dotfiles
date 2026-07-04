@@ -1,0 +1,16 @@
+[general]
+import = ["~/.config/alacritty/style.toml"]
+
+[keyboard]
+[[keyboard.bindings]]
+action = "ScrollHalfPageUp"
+key = "PageUp"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollHalfPageDown"
+key = "PageDown"
+mods = "Control"
+
+[terminal]
+shell = "/bin/zsh"

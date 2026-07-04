@@ -1,6 +1,5 @@
-@import "colors.rasi"
+@import "~/.config/rofi/colors.rasi"
 
-/*****----- Configuration -----*****/
 configuration {
     modi:                        "drun";
     icon-theme:                  "Papirus";
@@ -22,9 +21,9 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      3px solid;
-    border-radius:               8px;
-    border-color:                @selected;
+    border:                      0px solid;
+    border-radius:               16px;
+    border-color:                @foreground;
     background-color:            @background;
     cursor:                      "default";
 }
@@ -37,7 +36,7 @@ mainbox {
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
-    border-color:                @selected;
+    border-color:                @foreground;
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
 }
@@ -50,9 +49,7 @@ inputbar {
     padding:                     15px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @on-primary;
-    background-color:            @on-primary;
-    text-color:                  @selected;
+    text-color:                  @foreground;
     children:                    [ "prompt", "entry" ];
 }
 
@@ -61,85 +58,71 @@ prompt {
     background-color:            inherit;
     text-color:                  inherit;
 }
-textbox-prompt-colon {
-    enabled:                     true;
-    expand:                      false;
-    str:                         "::";
-    background-color:            inherit;
-    text-color:                  inherit;
-}
 entry {
     enabled:                     true;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
+    placeholder:                 "Select option";
     placeholder-color:           inherit;
 }
-
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       8;
-    cycle:                       false;
+    lines:                       6;
+    cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    fixed-height:                false;
-    fixed-columns:               true;
 
     spacing:                     0px;
     margin:                      0px;
-    padding:                     0px;
+    padding:                     10px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @foreground;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
-}
-scrollbar {
-    handle-width:                5px ;
-    handle-color:                @selected;
-    border-radius:               0px;
-    background-color:            @background-alt;
 }
 
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     0px;
     margin:                      0px;
-    padding:                     6px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
+    padding:                     0px;
+    border:                      5px solid;
+    border-radius:               10px;
+    border-color:                transparent;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            @background;
-    text-color:                  @foreground;
+    background-color:            inherit;
+    text-color:                  inherit;
 }
 element alternate.normal {
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    background-color:            inherit;
+    text-color:                  inherit;
 }
 element selected.normal {
-    background-color:            @selected;
-    text-color:                  @background;
+    background-color:            @background-alt;
+    text-color:                  inherit;
+    border-color:                @selected-alt;
 }
 element selected.alternate {
-    background-color:            @selected;
-    text-color:                  @background;
+    background-color:            @background-alt;
+    text-color:                  inherit;
+    border-color:                @selected-alt;
 }
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        32px;
+    size:                        40px;
     cursor:                      inherit;
 }
 element-text {
@@ -156,7 +139,7 @@ error-message {
     padding:                     15px;
     border:                      2px solid;
     border-radius:               12px;
-    border-color:                @selected;
+    text-color:                  @foreground;
     background-color:            @background;
     text-color:                  @foreground;
 }
@@ -167,4 +150,3 @@ textbox {
     horizontal-align:            0.0;
     highlight:                   none;
 }
-

@@ -23,17 +23,3 @@ blink_timeout = 20
 
 [mouse]
 hide_when_typing = true
-
-[keyboard]
-[[keyboard.bindings]]
-action = "ScrollHalfPageUp"
-key = "PageUp"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "ScrollHalfPageDown"
-key = "PageDown"
-mods = "Control"
-
-[terminal]
-shell = "/bin/zsh"

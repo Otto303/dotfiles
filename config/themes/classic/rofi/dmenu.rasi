@@ -1,4 +1,9 @@
-@import "~/.config/rofi/colors.rasi"
+* {
+    font:       "JetBrainsMono Nerd Font 14";
+    selected:   #ffffff44;
+    background: #aaaaaa11;
+    foreground: white;
+}
 
 /*****----- Configuration -----*****/
 configuration {
@@ -14,7 +19,7 @@ window {
     transparency:                "real";
     location:                    center;
     anchor:                      center;
-    fullscreen:                  false;
+    fullscreen:                  true;
     width:                       30%;
     x-offset:                    0px;
     y-offset:                    0px;
@@ -23,7 +28,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               16px;
+    border-radius:               0px;
     border-color:                @foreground;
     background-color:            @background;
     cursor:                      "default";
@@ -95,11 +100,11 @@ listview {
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     30px;
     margin:                      0px;
-    padding:                     10px;
+    padding:                     20px;
     border:                      0px solid;
-    border-radius:               10px;
+    border-radius:               30px;
     border-color:                @foreground;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -125,7 +130,7 @@ element selected.alternate {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        40px;
+    size:                        75px;
     cursor:                      inherit;
 }
 element-text {

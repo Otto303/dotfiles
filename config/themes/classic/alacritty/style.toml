@@ -1,0 +1,21 @@
+[window]
+padding = { x = 4, y = 4 }
+dynamic_padding = true
+opacity = 0.9
+
+[font]
+normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
+size = 10
+
+[colors]
+[colors.primary]
+background = "#200010"
+foreground = "#dddddd"
+
+[cursor]
+style = { shape = "Block", blinking = "On"}
+blink_interval = 750
+blink_timeout = 20
+
+[mouse]
+hide_when_typing = true

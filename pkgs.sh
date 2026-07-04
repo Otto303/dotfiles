@@ -20,6 +20,7 @@ echo udiskie
 echo zip
 echo unzip
 echo pacman-contrib
+echo xsel
 
 # tools
 echo man

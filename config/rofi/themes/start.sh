@@ -9,14 +9,19 @@ fi
 replace ()
 {
     rm $HOME/.config/$1
-    ln -s $HOME/.config/themes/$theme/$1 $HOME/.config/$1
+
+    file=$HOME/.config/themes/$theme/$1
+    if ! [ -f $file ] ; then
+        file=$HOME/.config/themes/default/$1
+    fi
+    ln -s $file $HOME/.config/$1
 }
 
 # i3 conf
 replace i3/visuals.conf && i3-msg reload
 
 # alacritty
-replace alacritty/alacritty.toml
+replace alacritty/style.toml
 
 # rofi
 replace rofi/config.rasi
