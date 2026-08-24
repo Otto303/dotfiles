@@ -22,6 +22,7 @@ return {
         { "gi",         "<cmd>Telescope lsp_implementations<CR>",  desc = "Show LSP implementations",  mode = "n" },
         { "gt",         "<cmd>Telescope lsp_type_definitions<CR>", desc = "Show LSP type definitions", mode = "n" },
         { "<leader>D",  "<cmd>Telescope diagnostics bufnr=0<CR>",  desc = "Show buffer diagnostics",   mode = "n" },
+        { "K",          vim.lsp.buf.hover,                         desc = "Show documentation",        mode = "n" },
         {
             "[d",
             function()
@@ -38,14 +39,12 @@ return {
             desc = "Go to next diagnostic",
             mode = "n",
         },
-        { "K",          vim.lsp.buf.hover,                                 desc = "Show documentation for what is under cursor", mode = "n" },
-        { "<leader>F",  "<cmd>lua vim.lsp.buf.format({async = true})<cr>", desc = "Format buffer",                               mode = { "n", "x" } },
-        { "<leader>rs", ":LspRestart<CR>",                                 desc = "Restart LSP",                                 mode = "n" },
     },
     config = function()
         -- Customize error signs
         vim.diagnostic.config({
             underline = true,
+            severity_sort = true,
             virtual_text = { prefix = "", },
             signs = {
                 text = {

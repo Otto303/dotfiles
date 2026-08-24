@@ -1,12 +1,12 @@
 [global]
 font = "JetBrainsMonoNerdFont"
-#offset = (12,42)
 
-background = "#222222"
-foreground = "#efefef"
+background = "#251e22"
+foreground = "#e7189f"
 
-frame_width = 0
-corner_radius = 12
+frame_width = 2
+frame_color = "#e7189f"
+corner_radius = 10
 padding = 12
 
 [discord]

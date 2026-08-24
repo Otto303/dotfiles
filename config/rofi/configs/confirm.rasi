@@ -18,9 +18,9 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      0px solid;
-    border-radius:               16px;
-    border-color:                @foreground;
+    border:                      2px solid;
+    border-radius:               10px;
+    border-color:                @selected;
     background-color:            @background;
     cursor:                      "default";
 }
@@ -32,7 +32,7 @@ mainbox {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px 0px 0px 0px;
+    border-radius:               10px;
     border-color:                @foreground;
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
@@ -111,11 +111,11 @@ element alternate.normal {
 }
 element selected.normal {
     background-color:            @selected;
-    text-color:                  inherit;
+    text-color:                  @background;
 }
 element selected.alternate {
     background-color:            @selected;
-    text-color:                  inherit;
+    text-color:                  @background;
 }
 element-icon {
     background-color:            transparent;
@@ -136,7 +136,7 @@ element-text {
 error-message {
     padding:                     15px;
     border:                      2px solid;
-    border-radius:               12px;
+    border-radius:               10px;
     text-color:                  @foreground;
     background-color:            @background;
     text-color:                  @foreground;

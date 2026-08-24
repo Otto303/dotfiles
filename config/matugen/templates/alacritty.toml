@@ -1,0 +1,4 @@
+[colors]
+[colors.primary]
+background = "{{ colors.surface_container.default.hex | set_lightness: 8.0 }}"
+foreground = "{{ colors.primary.default.hex | set_lightness: 80.0 }}"

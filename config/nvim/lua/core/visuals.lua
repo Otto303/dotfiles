@@ -1,13 +1,13 @@
 local api = vim.api
 local opt = vim.opt
 
---vim.cmd("colorscheme vim")
-
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
 -- custom colors
+
+--vim.cmd("colorscheme vim")
 
 --[[ api.nvim_set_hl(0, "Normal", { bg="NONE" })
 

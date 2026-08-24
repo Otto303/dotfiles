@@ -4,4 +4,5 @@ CMD="xwinwrap -ov -g 1600x900+0+0 -- mpv -wid WID --no-osc --no-osd-bar --loop-f
 
 echo "$CMD $1" > $HOME/.fehbg
 
-$CMD $1
+matugen image "$1" --source-color-index 0
+$CMD "$1"

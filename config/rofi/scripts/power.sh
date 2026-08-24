@@ -1,10 +1,10 @@
-CONFIG="~/.config/rofi/power/config.rasi"
+CONFIG="~/.config/rofi/configs/power.rasi"
 
-LOGOUT="  logout"
-REBOOT="󰦛  reboot"
-SHUTDOWN="  shutdown"
+LOGOUT=""
+REBOOT="󰦛"
+SHUTDOWN=""
 
-CONFIRM="$HOME/.config/rofi/confirm/start.sh"
+CONFIRM="$HOME/.config/rofi/scripts/confirm.sh"
 
 layout=$(echo -e "$LOGOUT\n$REBOOT\n$SHUTDOWN" | rofi -dmenu -config $CONFIG)
 

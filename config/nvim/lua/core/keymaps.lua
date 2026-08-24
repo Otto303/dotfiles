@@ -9,17 +9,17 @@ keymap("n", "<C-q>", ":q!<CR>", { desc = "Quit" });
 keymap("i", "<C-q>", "<Esc>:q!<CR>", { desc = "Quit" });
 
 keymap("n", "<C-s>", ":w<CR>", { desc = "Save" });
-keymap("i", "<C-s>", "<Esc>:w<CR>i", { desc = "Save" });
+keymap("i", "<C-s>", "<Esc>:w<CR>a", { desc = "Save" });
 
-keymap("i", "<C-z>", "<Esc>:u<CR>i", { desc = "Undo" });
-keymap("i", "<C-y>", "<Esc>:redo<CR>i", { desc = "Redo" });
+keymap("i", "<C-z>", "<Esc>:u<CR>a", { desc = "Undo" });
+keymap("i", "<C-y>", "<Esc>:redo<CR>a", { desc = "Redo" });
 
-keymap("v", "<C-z>", "<Esc>:u<CR>i", { desc = "Undo" });
-keymap("v", "<C-y>", "<Esc>:redo<CR>i", { desc = "Redo" });
+keymap("v", "<C-z>", "<Esc>:u<CR>v", { desc = "Undo" });
+keymap("v", "<C-y>", "<Esc>:redo<CR>v", { desc = "Redo" });
 
 keymap("v", "<C-c>", "y", { desc = "Copy" });
 keymap("n", "<C-v>", "p", { desc = "Paste" });
-keymap("i", "<C-v>", "<Esc>pi", { desc = "Paste" });
+keymap("i", "<C-v>", "<Esc>pa", { desc = "Paste" });
 keymap("v", "<C-v>", "p", { desc = "Paste" });
 keymap("v", "<C-x>", "<Del>", { desc = "Cut" });
 

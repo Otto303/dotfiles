@@ -1,1 +1,6 @@
-/home/otto/.config/themes/dark/rofi/colors.rasi
+* {
+    font:       "JetBrainsMono Nerd Font 10";
+    selected:   #ec46b2;
+    background: #1c171aaa;
+    foreground: #f38ccf;
+}

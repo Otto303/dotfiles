@@ -2,7 +2,7 @@
 
 PWD=$HOME/.config/rofi/wallpapers_animated
 WALLPAPER_DIR="$HOME/Pictures/WallpapersAnimated"
-CONFIG=$HOME/.config/rofi/wallpapers/config.rasi
+CONFIG=$HOME/.config/rofi/configs/wallpaper.rasi
 
 rofi -show filebrowser \
      -show-icons \

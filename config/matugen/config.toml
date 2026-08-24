@@ -1,0 +1,25 @@
+[config]
+reload_apps = true
+
+[templates.alacritty]
+input_path = '~/.config/matugen/templates/alacritty.toml'
+output_path = '~/.config/alacritty/colors.toml'
+
+[templates.dunst]
+input_path = '~/.config/matugen/templates/dunstrc'
+output_path = '~/.config/dunst/dunstrc'
+post_hook = '(pkill dunst; dunst & disown) > /dev/null'
+
+[templates.i3]
+input_path = '~/.config/matugen/templates/i3.conf'
+output_path = '~/.config/i3/visuals.conf'
+post_hook = 'i3-msg reload > /dev/null'
+
+[templates.polybar]
+input_path = '~/.config/matugen/templates/polybar.ini'
+output_path = '~/.config/polybar/colors.ini'
+post_hook = 'polybar-msg cmd restart > /dev/null'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi.rasi'
+output_path = '~/.config/rofi/colors.rasi'

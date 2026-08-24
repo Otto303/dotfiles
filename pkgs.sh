@@ -4,6 +4,7 @@
 echo alacritty
 echo zsh
 echo nvim
+echo i3lock-color
 echo pulseaudio
 echo pavucontrol
 echo bluez
@@ -49,7 +50,7 @@ echo lsd
 echo feh
 echo xwinwrap
 echo mpv
-echo breeze-cursors
+echo bibata-cursor-theme
 
 # apps
 echo firefox

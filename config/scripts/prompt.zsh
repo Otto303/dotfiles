@@ -5,8 +5,10 @@ MSG=''
 CURRENT_DIR='%40<...<%~%<<'
 
 # COLORS
+COLOR=''
 BASE_COLOR='#aa00ff'
 ERROR_COLOR='#bb0000'
+
 NIX_COLOR='#2266aa'
 PYTHON_COLOR='#dddd00'
 GIT_COLOR='#66bb00'
@@ -23,9 +25,22 @@ elif (git status); then
     COLOR=$GIT_COLOR
 fi
 
+case "$LAST_RESULT" in
+    0) ERROR_SYMBOL=''
+    ;;
+    124) ERROR_SYMBOL='󱎫'
+    ;;
+    127) ERROR_SYMBOL=''
+    ;;
+    134) ERROR_SYMBOL='󰍛'
+    ;;
+    *) ERROR_SYMBOL=''
+    ;;
+esac
+
 if [ $LAST_RESULT -ne 0 ]; then
     COLOR=$ERROR_COLOR
-    MSG="%F{$ERROR_COLOR}[ $LAST_RESULT]%f $MSG"
+    MSG="%F{$ERROR_COLOR}[$ERROR_SYMBOL $LAST_RESULT]%f $MSG"
 fi
 
 # Zsh VCS
@@ -35,7 +50,8 @@ zstyle ':vcs_info:git:*' formats "%F{$GIT_COLOR} %b %m%u%c%f"
 setopt PROMPT_SUBST
 
 # Set up PROMPT
-PROMPT_TOP="%F{$COLOR}╭─%f"
+PROMPT_SYMBOL=""
+PROMPT_TOP="%F{$COLOR}╭─$PROMPT_SYMBOL%f"
 PROMPT_BOTTOM="%F{$COLOR}╰─%f"
 
 PROMPT="$PROMPT_TOP $CURRENT_DIR $MSG${vcs_info_msg_0_}
@@ -45,14 +61,16 @@ $PROMPT_BOTTOM "
 unset LAST_RESULT
 unset MSG
 unset CURRENT_DIR
+unset ERROR_SYMBOL
 
 unset COLOR
 unset BASE_COLOR
 unset ERROR_COLOR
 
 unset NIX_COLOR
-unset GIT_COLOR
 unset PYTHON_COLOR
+unset GIT_COLOR
 
+unset PROMPT_SYMBOL
 unset PROMPT_TOP
 unset PROMPT_BOTTOM

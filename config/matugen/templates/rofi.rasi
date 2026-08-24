@@ -1,0 +1,6 @@
+* {
+    font:       "JetBrainsMono Nerd Font 10";
+    selected:   {{ colors.primary.default.hex | set_lightness: 60.0 }};
+    background: {{ colors.surface_container.default.hex | set_lightness: 10.0 }}aa;
+    foreground: {{ colors.primary.default.hex | set_lightness: 75.0 }};
+}

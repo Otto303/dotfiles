@@ -58,6 +58,7 @@ IncludeCategories:
 
 ---
 Language: Cpp
+Standard: Latest
 NamespaceIndentation: All
 PointerAlignment: Left
 ReferenceAlignment: Left

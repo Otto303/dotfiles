@@ -1,4 +1,4 @@
-CONFIG="~/.config/rofi/confirm/config.rasi"
+CONFIG="~/.config/rofi/configs/confirm.rasi"
 
 res=$(echo -e "yes\nno" | rofi -dmenu -config $CONFIG -p "")
 

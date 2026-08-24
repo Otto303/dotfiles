@@ -8,6 +8,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
     git
     zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -17,7 +18,7 @@ source $ZSH/oh-my-zsh.sh
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-# [[ ! -r '/home/otto/.opam/opam-init/init.zsh' ]] || source '/home/otto/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+[[ ! -r '/home/otto/.opam/opam-init/init.zsh' ]] || source '/home/otto/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 
 # ========== Config ==========
 
@@ -29,6 +30,8 @@ autoload -Uz tetriscurses
 export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat --paging=always -p -lman'"
 
 # Visuals
+#eval "$(starship init zsh)"
+
 autoload -Uz add-zsh-hook
 set_up_prompt() {
     . $HOME/.config/scripts/prompt.zsh &> /dev/null
@@ -43,15 +46,29 @@ alias tree='lsd --tree'
 alias pacman='pacman --color=auto'
 alias la='lsd -A'
 alias rf='rm -rf'
-alias nv='nvim'
+alias vim='nvim'
+alias vi='\vim'
 
 alias less='bat -p'
 alias cat='bat --paging=never --style=plain'
+
+alias valgrind='$HOME/.local/bin/colour-valgrind'
 
 # Binds
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 bindkey '^[[3~' delete-char
+
+# function clear-screen-and-scrollback() {
+#   builtin echoti civis >"$TTY"
+#   builtin print -rn -- $'\e[H\e[2J' >"$TTY"
+#   builtin zle .reset-prompt
+#   builtin zle -R
+#   builtin print -rn -- $'\e[3J' >"$TTY"
+#   builtin echoti cnorm >"$TTY"
+# }
+# zle -N clear-screen-and-scrollback
+# bindkey '^L' clear-screen-and-scrollback
 
 local func-fg() {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -64,8 +81,3 @@ local func-fg() {
 }
 zle -N func-fg
 bindkey '^Z' func-fg
-
-# Neovim
-if [ -n "$NVIM" ]; then
-    source $HOME/.config/nvim/zshrc
-fi

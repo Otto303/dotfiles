@@ -1,0 +1,14 @@
+[global]
+font = "JetBrainsMonoNerdFont"
+
+background = "{{ colors.surface_container.default.hex }}"
+foreground = "{{ colors.primary.default.hex | set_lightness: 50.0 }}"
+
+frame_width = 2
+frame_color = "{{ colors.primary.default.hex | set_lightness: 50.0 }}"
+corner_radius = 10
+padding = 12
+
+[discord]
+appname="discord"
+default_icon = "/opt/discord/discord.png"

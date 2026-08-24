@@ -28,3 +28,5 @@ opt.splitbelow = true
 opt.cursorline = true
 vim.opt.colorcolumn = "80"
 opt.swapfile = false
+
+vim.o.updatetime = 300
